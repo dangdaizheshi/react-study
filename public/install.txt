@@ -1,0 +1,7 @@
+react 搭建
+npx create-react-app react1
+
+安装redux
+npm i @reduxjs/toolkit react-redux 
+
+安装 router

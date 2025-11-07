@@ -1,0 +1,22 @@
+.kuang {
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+}
+.lli {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.active {
+    color: orange;
+}
+.banner {
+    span {
+        padding: 0 10px;
+    }
+    span:first-child {
+        border-right: 1px solid black;
+    }
+}
