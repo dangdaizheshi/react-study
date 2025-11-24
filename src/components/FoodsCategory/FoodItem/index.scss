@@ -43,9 +43,13 @@
   .goods-count {
     display: flex;
     height: 20px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 2px;
+    .inner {
+      display: block;
+      padding: 0 5px;
+    }
   }
   .goods-detail {
     display: flex;
@@ -131,5 +135,13 @@
     font-size: 12px;
     line-height: 14px;
     margin-right: 1px;
+  }
+  .plus {
+    border-radius: 5px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
   }
 }

@@ -1,4 +1,7 @@
 import './index.scss'
+import foodSlice from '../../../store/modules/foodSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 const Foods = ({
   id,
@@ -13,7 +16,9 @@ const Foods = ({
   tag,
   count
 }) => {
-
+  const {cartList} = useSelector(state => state.foods)
+  const dispatch = useDispatch()
+  const {addCartList} = foodSlice.actions
   return (
     <dd className="cate-goods">
       <div className="goods-img-wrap">
@@ -39,8 +44,20 @@ const Foods = ({
           </div>
           <div className="goods-count">
             <span className="plus">-</span>
-            <span>0</span>
-            <span className="plus">+</span>
+            <span className='inner'>0</span>
+            <span className="plus" onClick={() => dispatch(addCartList({
+                id,
+                picture,
+                name,
+                unit,
+                description,
+                food_tag_list,
+                month_saled,
+                like_ratio_desc,
+                price,
+                tag,
+                count
+            }))}>+</span>
           </div>
         </div>
       </div>
