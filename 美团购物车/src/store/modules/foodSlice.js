@@ -19,6 +19,18 @@ const foodSlice = createSlice({
             const i = state.cartList.find(item => item.id === action.payload.id)
             if(i) i.count++
             else state.cartList.push(action.payload)
+        },
+        increCount(state, action) {
+            const i = state.cartList.find(item => item.id === action.payload.id);
+            i.count++;
+        },
+        decreCount(state, action) {
+            const i = state.cartList.find(item => item.id === action.payload.id);
+            if(i.count === 0) return;
+            i.count--;
+        },
+        clearCartList(state) {
+            state.cartList = []
         }
     }
 })

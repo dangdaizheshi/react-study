@@ -1,41 +1,27 @@
-import Login from '../pages/Login'
-import Home from '../pages/Home'
-import Layout from '../pages/Layout'
-import About from '../pages/About'
-import Board from '../pages/Board'
-import NotFound from '../pages/404'
 import { createBrowserRouter } from 'react-router-dom'
+import Layout from '../pages/Layout/index'
+import Year from '../pages/Year/index'
+import Mouth from '../pages/Mouth/index'
+import New from '../pages/New/index'
 
 const router = createBrowserRouter([
     {
-        path: '',
-        element: <div>我是主入口</div>
-    },
-    {
-        path: '/login/:id/:name',
-        element: <Login />
-    },
-    {
-        path: '/home',
-        element: <Home />
-    },
-    {
-        path: '/layout',
+        path: '/',
         element: <Layout />,
         children: [
             {
-                index:true,
-                element: <Board></Board>
+                path: 'mouth',
+                element: <Mouth />
             },
             {
-                path: 'about',
-                element: <About></About>
+                path: 'year',
+                element: <Year />
             }
         ]
     },
     {
-        path: '*',
-        element: <NotFound></NotFound>
+        path: 'new',
+        element: <New />
     }
 ])
 

@@ -1,16 +1,31 @@
-import { Link, Outlet} from "react-router-dom"
+import { Outlet } from "react-router-dom";
+import { Button } from "antd-mobile";
+import billSlice from "../../store/modules/billSlice";
+import { fetchBillList } from "../../store/modules/billSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function Layout() {
-    return (
-        <div className="layout">
-            <div>我是layout</div>
-            <Link to = '/layout'>面板</Link>
-            <br/>
-            <Link to = '/layout/about'>关于</Link>
-            <br/>
-            <Outlet></Outlet>
-        </div>
-    )
+  const dispatch = useDispatch()
+  const {billList} = useSelector(state => state.bill)
+  useEffect(() => {
+    dispatch(fetchBillList())
+  }, [dispatch])
+
+  return (
+    <div className="layout">
+      <div className="container">
+        <Outlet />
+      </div>
+      <div className="footer">
+        <TabBar>
+          {tabs.map(item => (
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+          ))}
+        </TabBar>
+      </div>
+    </div>
+  )
 }
 
-export default Layout
+export default Layout;
