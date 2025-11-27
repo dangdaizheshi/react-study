@@ -7,3 +7,5 @@ const AuthRoute = ({children}) => {
     if(token) return <>{children}</>
     else return <Navigate to = {'/login'} replace/>
 }
+
+export {AuthRoute}
