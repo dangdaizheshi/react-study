@@ -10,7 +10,7 @@ const http = axios.create({
 // 添加请求拦截器，可以在这里注入token
 http.interceptors.request.use((config)=> {
     const token = getToken()
-    if(token) config.headers.Authorization = 'Bearer ' + token;
+    if(token) config.headers.Authorization = `Bearer ${token}`;
     return config
   }, (error)=> {
     return Promise.reject(error)

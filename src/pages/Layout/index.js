@@ -15,9 +15,9 @@ import useSelection from 'antd/es/table/hooks/useSelection'
 const { Header, Sider } = Layout
 
 const GeekLayout = () => {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {userInfo} = useSelection(state => state.user)
+  // const dispatch = useDispatch()
+  // const {userInfo} = useSelection(state => state.user)
   const items = [
     {
       label: '首页',
@@ -35,9 +35,9 @@ const GeekLayout = () => {
       icon: <EditOutlined />,
     },
   ]
-  useEffect(() => {
-    dispatch(fetchUserInfo())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(fetchUserInfo())
+  // }, [dispatch])
   const changeMenu = (values) => {
     navigate(values.key)
   }
@@ -48,7 +48,7 @@ const GeekLayout = () => {
       <Header className="header">
         <div className="logo" />
         <div className="user-info">
-          <span className="user-name">{userInfo.name}</span>
+          <span className="user-name">{'kjjjj'}</span>
           <span className="user-logout">
             <Popconfirm title="是否确认退出？" okText="退出" cancelText="取消">
               <LogoutOutlined /> 退出
