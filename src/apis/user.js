@@ -2,7 +2,7 @@ import { http } from "../utils/http";
 
 export function getLoginApi(formData) {
     return http({
-        url: '/authorizations',
+        url: '/api/login',
         method: 'POST',
         data: formData
     })
@@ -10,7 +10,7 @@ export function getLoginApi(formData) {
 
 export function getUserInfoApi() {
     return http({
-        url: '/user/profile',
-        method: 'GET',
+        url: '/my/userinfo',
+        method: 'GET'
     })
 }

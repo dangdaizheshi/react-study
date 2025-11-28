@@ -21,19 +21,18 @@ const Login = () => {
         {/* 登录表单 */}
         <Form validateTrigger="onBlur" onFinish={onFinish}>
           <Form.Item
-            name="mobile"
+            name="username"
             rules={[
-              { required: true, message: '请输入手机号码!' },
-              { pattern: /^1[3-9]\d{9}$/, message: '请输入正确手机号码!' }
+              { required: true, message: '请输入用户名!' },
             ]}
           >
-            <Input size="large" placeholder="请输入手机号" />
+            <Input size="large" placeholder="请输入用户名" />
           </Form.Item>
           <Form.Item
-            name="code"
-            rules={[{ required: true, message: '请输入验证码!' }]}
+            name="password"
+            rules={[{ required: true, message: '请输入密码!' }]}
           >
-            <Input size="large" placeholder="请输入验证码" />
+            <Input size="large" placeholder="请输入密码" />
           </Form.Item>
           <Form.Item>
             <Checkbox className="login-checkbox-label">
