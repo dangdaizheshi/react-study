@@ -1,6 +1,6 @@
 // axios 封装
 import axios from "axios";
-import {getToken} from '../utils/token'
+import {getToken, delToken} from '../utils/token'
 
 const http = axios.create({
     baseURL: 'http://127.0.0.1:3002',
@@ -20,6 +20,12 @@ http.interceptors.request.use((config)=> {
 http.interceptors.response.use((response)=> {
     return response
   }, (error)=> {
+    // 401 token 失效
+    if(error.response.status === 1) {
+      delToken()
+      window.location.href = '/login'
+      window.location.reload()
+    }
     return Promise.reject(error)
 })
 
