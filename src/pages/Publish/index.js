@@ -42,6 +42,14 @@ const Publish = () => {
     }
     // 2. 调用接口提交
   }
+  const [picList, setpicList] = useState([])
+  const onUploadChange = (value) => {
+    setpicList(value.fileList)
+  }
+  const [nowTab, setnowTab] = useState(0)
+  const onTabChange = (e) => {
+    setnowTab(e.target.value)
+  }
   return (
     <div className="publish">
       <Card
@@ -79,22 +87,26 @@ const Publish = () => {
 
           <Form.Item label="封面">
             <Form.Item name="type">
-              <Radio.Group>
+              <Radio.Group onChange={onTabChange}>
                 <Radio value={1}>单图</Radio>
                 <Radio value={3}>三图</Radio>
                 <Radio value={0}>无图</Radio>
               </Radio.Group>
             </Form.Item>
-            <Upload
-              name="image"
-              listType="picture-card"
-              className="avatar-uploader"
-              showUploadList
-            >
-              <div style={{ marginTop: 8 }}>
-                <PlusOutlined />
-              </div>
-            </Upload>
+            {nowTab > 0 && (
+              <Upload
+                name="image"
+                listType="picture-card"
+                showUploadList
+                action={"http://geek.itheima.net/v1_0/upload"}
+                onChange={onUploadChange}
+                maxCount={nowTab}
+              >
+                <div style={{ marginTop: 8 }}>
+                  <PlusOutlined />
+                </div>
+              </Upload>
+            )}
           </Form.Item>
           <Form.Item
             label="内容"
